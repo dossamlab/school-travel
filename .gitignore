@@ -1,0 +1,29 @@
+node_modules/
+dist/
+.vercel/
+coverage/
+playwright-report/
+test-results/
+.env
+.env.*
+!.env.example
+*.log
+*.blend
+*.blend1
+.playwright-mcp/
+.DS_Store
+Thumbs.db
+KakaoTalkChats.txt
+배치도*.pdf
+교사동 도면*.pdf
+건물 외관.mp4
+동편출입구부터 1층 내부.mp4
+# Room walk-through videos are modelling references only.
+src/classrooms/
+
+# 학교 참고 자료(항공사진·로드뷰 캡처·배치도·도면·영상)는 이 폴더에만 두고 올리지 않는다.
+references/
+# 캐릭터 참고 이미지·요청문 초안과 정리 전 Meshy 내려받기 파일은 로컬에만 둔다.
+assets/*-reference-*
+assets/meshy-character-*
+assets/*-meshy-brief.md

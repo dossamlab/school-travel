@@ -1,0 +1,28 @@
+{
+  "name": "school-travel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "check": "tsc --noEmit",
+    "test": "node --test tests/*.test.ts",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "room-rows": "node scripts/room-guide-rows.ts"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@types/three": "0.186.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.2",
+    "@types/node": "^24.0.0"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "description": "학교 배치도·도면·사진을 바탕으로 교문부터 걸어 보는 3D 학교 여행 웹사이트 견본",
+  "license": "MIT"
+}

@@ -1,0 +1,23 @@
+/assets/*
+# Tests in the Vercel build read the guestbook script.
+!/assets/school-guestbook.gs
+!/assets/player.glb
+/dist/
+/node_modules/
+/coverage/
+/playwright-report/
+/test-results/
+/preview*.png
+**/*.md
+/.github/
+/.playwright-mcp/
+.env*
+**/*.log
+*.blend
+*.blend1
+/건물 외관.mp4
+/동편출입구부터 1층 내부.mp4
+/교사동 도면*.pdf
+# Room walk-through videos are modelling references only.
+/src/classrooms/
+/references/

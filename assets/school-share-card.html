@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><title>청학 여행 공유 카드</title>
+<style>
+*{box-sizing:border-box}body{margin:0;width:1200px;height:630px;overflow:hidden;background:#f5f0df;color:#344f43;font-family:'Malgun Gothic',sans-serif}
+#scene{position:absolute;left:410px;top:0;width:790px;height:630px}#scene canvas{width:100%;height:100%}
+.wash{position:absolute;inset:0;background:linear-gradient(90deg,#f5f0df 0%,#f5f0df 31%,#f5f0dfdd 39%,#f5f0df00 58%)}
+.copy{position:absolute;left:66px;top:72px}.label{display:flex;align-items:center;gap:12px;font-size:16px;letter-spacing:3px;color:#728675}.leaf{width:34px;height:34px;background:#809d82;border-radius:50%;color:#fff9e9;display:grid;place-items:center;letter-spacing:0;font-size:24px}
+h1{font-size:78px;font-weight:800;letter-spacing:-5px;line-height:1.15;margin:38px 0 24px}p{font-size:26px;line-height:1.65;letter-spacing:-1px;margin:0}.tag{display:inline-block;margin-top:34px;padding:12px 21px;border:1px solid #c6d3bd;border-radius:30px;background:#e4ead8;font-size:17px;color:#4f705a}
+footer{position:absolute;left:66px;bottom:42px;font-size:15px;letter-spacing:1px;color:#7e8b77}.border{position:absolute;inset:20px;border:1px solid #ffffff99;border-radius:26px;pointer-events:none}
+</style>
+<div id="scene"></div><div class="wash"></div><div class="copy"><div class="label"><span class="leaf">♧</span> CHEONGHAK SCHOOL WALK</div><h1>청학 여행</h1><p>익숙한 학교를,<br>새로운 산책으로.</p><div class="tag">교문부터 시작하는 3D 학교 여행</div></div><footer>청학고등학교를 거닐다 · ch-travel.vercel.app</footer><div class="border"></div>
+<script type="module">
+import {createSchool} from '/src/school-scene.ts';
+const school=await createSchool(document.querySelector('#scene'));
+school.setMode('campus');school.player.visible=false;
+const camera=school.camera;camera.position.set(82,68,92);camera.lookAt(1,5,1);
+camera.left=-57;camera.right=57;camera.top=45.45;camera.bottom=-45.45;camera.zoom=1.05;camera.updateProjectionMatrix();
+function render(){school.renderer.render(school.scene,camera);requestAnimationFrame(render)}render();window.cardReady=true;
+</script></html>

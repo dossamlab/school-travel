@@ -1,0 +1,2 @@
+# Vercel CLI reads ignore rules line by line; CR endings would disable every rule.
+.vercelignore text eol=lf
