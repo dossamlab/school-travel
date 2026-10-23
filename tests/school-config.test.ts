@@ -17,3 +17,13 @@ test('index.html takes its school text from the config', () => {
   assert.doesNotMatch(html,new RegExp(schoolConfig.schoolName),'write %SCHOOL_*% placeholders instead of the school name');
   for(const key of html.matchAll(/%SCHOOL_(\w+)%/g))assert.ok(key[1]==='shareImageUrl'||key[1]! in schoolConfig,key[1]);
 });
+
+test('the template credit stays on the welcome card and in the help', async () => {
+  const {templateCredit}=await import('../src/template-credit.ts');
+  assert.equal(templateCredit.text,'made by 청학고 도쌤');
+  assert.equal(templateCredit.url,'https://github.com/dossamlab/school-travel');
+  const main=readFileSync(new URL('../src/school-main.ts',import.meta.url),'utf8');
+  assert.match(main,/<small>[^`]*templateCredit\.text[^`]*<\/small>/,'shown on the welcome card');
+  // The help credits add it whenever the school's own maker is someone else.
+  assert.match(main,/제작: \$\{escape\(about\.maker\)\}\$\{templateCredit\.text\.endsWith\(about\.maker\)\?'':/,'shown in the help credits');
+});

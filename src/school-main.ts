@@ -1,3 +1,4 @@
+// 학교 여행(school-travel) — made by 청학고 도쌤 (dossamlab) · https://github.com/dossamlab/school-travel
 import './school-style.css';
 import {bindGameKeyboard} from './interaction';
 import {planFloorData as floorData,planAspectRatios} from './school-plan-data';
@@ -18,6 +19,7 @@ import {gatePrincipal,principalTalkRadius,canTalkToPrincipal,nearbyGreeter,type 
 import {showGuestbook,showPrincipalGuide,showRoomGuide} from './school-sheet-ui';
 import {nearbyStair,automaticStairPath,advanceStairRoute,type SchoolStair} from './school-auto-stairs';
 import {schoolConfig} from './school-config';
+import {templateCredit} from './template-credit';
 const allPlaces=[...places,...upperRooms,gatePrincipal];
 const placeFloor=(place:Place)=>'floor' in place?Number(place.floor):1;
 const mapCells=(floor:number)=>floor===1?floorData[1]:upperPlanData[floor];
@@ -42,7 +44,7 @@ $('#app').innerHTML=`
   <main id="school-stage" tabindex="-1" aria-label="${schoolConfig.siteName} · ${schoolConfig.schoolName} 3D 탐방 화면"></main>
   <div id="loading" role="status"><span class="loading-leaf">${icon('leaf')}</span><b>학교의 문을 열고 있어요</b><span>캐릭터와 공간을 불러오는 중입니다.</span></div>
   <section id="welcome" hidden aria-labelledby="welcome-title">
-    <div class="welcome-card"><div class="eyebrow">${schoolConfig.englishName} · SCHOOL WALK</div><h1 id="welcome-title">처음 오는 길도,<br>천천히 둘러봐요.</h1><p>교문에서 학교로 걸어 들어가며<br>찾아갈 곳을 미리 만나 보세요.</p><div class="welcome-tags"><span>교문부터 학교 산책</span><span>1–5층 안내도</span></div><button id="start-campus" class="primary">교문에서 탐방 시작 ${icon('arrow')}</button><button id="start-course" class="secondary">3분 추천 코스 둘러보기</button><button id="start-tour" class="quiet">1층 바로 둘러보기</button><small>${schoolConfig.schoolName} · 배치도 기반 3D 견본<br>건물 외형과 문 위치는 실제 모습과 다를 수 있어요.</small></div>
+    <div class="welcome-card"><div class="eyebrow">${schoolConfig.englishName} · SCHOOL WALK</div><h1 id="welcome-title">처음 오는 길도,<br>천천히 둘러봐요.</h1><p>교문에서 학교로 걸어 들어가며<br>찾아갈 곳을 미리 만나 보세요.</p><div class="welcome-tags"><span>교문부터 학교 산책</span><span>1–5층 안내도</span></div><button id="start-campus" class="primary">교문에서 탐방 시작 ${icon('arrow')}</button><button id="start-course" class="secondary">3분 추천 코스 둘러보기</button><button id="start-tour" class="quiet">1층 바로 둘러보기</button><small>${schoolConfig.schoolName} · 배치도 기반 3D 견본<br>건물 외형과 문 위치는 실제 모습과 다를 수 있어요.<br>${outbound({label:templateCredit.text,url:templateCredit.url},'')}</small></div>
   </section>
   <div id="hud" hidden>
     <header class="topbar"><div class="school-brand"><span class="brand-mark">${icon('leaf')}</span><div><strong>${schoolConfig.siteName}</strong><span>${schoolConfig.tagline}</span></div></div><nav aria-label="화면 보기"><button id="mode-floor" class="tab active">1층 산책</button><button id="mode-campus" class="tab">건물 전체</button></nav><div class="header-tools"><button id="menu-toggle" class="round-button menu-toggle" aria-expanded="false" aria-controls="hud" aria-label="메뉴 펼치기">☰<span>메뉴</span></button><button id="map-button" class="round-button" aria-label="교실 바로가기 · 층별 안내도 열기">${icon('map')}<span>교실 바로가기</span></button><button id="help-button" class="icon-button" aria-label="조작 방법과 자료 출처">${icon('help')}</button></div></header>
@@ -560,7 +562,7 @@ showDialog('층별 안내도',`<div class="floor-tabs" role="group" aria-label="
   });
 }
 function showHelp(){
-showDialog('천천히 둘러보는 방법',`<div class="help-grid"><article><b>PC에서</b><p>WASD 또는 방향키로 움직이고, 빈 바닥을 클릭하면 그곳으로 걸어가요. 가까운 문은 Space나 화면 아래 버튼으로 열고, 의자 옆에서 누르면 앉아요.</p></article><article><b>휴대폰·태블릿에서</b><p>왼쪽 아래 이동판을 원하는 방향으로 밀거나 바닥을 눌러요. 가까운 장소의 안내 표시를 눌러 문을 열 수 있어요.</p></article><article><b>목적지와 전체 보기</b><p>목적지를 고르면 입구까지 걸어가요. 이동키를 누르면 안내를 멈추고 직접 걸어요. ‘전체 보기’로 주변을 살펴볼 수 있어요.</p></article></div><div class="source-box"><b>자료와 표현 범위</b><p>${escape(about.note)}</p>${about.details.map(text=>`<p>${escape(text)}</p>`).join('')}<p>${about.links.map(link=>outbound(link)).join(' · ')}</p></div><p class="credits">${escape(about.credits)} · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · 제작: ${escape(about.maker)}</p>`);
+showDialog('천천히 둘러보는 방법',`<div class="help-grid"><article><b>PC에서</b><p>WASD 또는 방향키로 움직이고, 빈 바닥을 클릭하면 그곳으로 걸어가요. 가까운 문은 Space나 화면 아래 버튼으로 열고, 의자 옆에서 누르면 앉아요.</p></article><article><b>휴대폰·태블릿에서</b><p>왼쪽 아래 이동판을 원하는 방향으로 밀거나 바닥을 눌러요. 가까운 장소의 안내 표시를 눌러 문을 열 수 있어요.</p></article><article><b>목적지와 전체 보기</b><p>목적지를 고르면 입구까지 걸어가요. 이동키를 누르면 안내를 멈추고 직접 걸어요. ‘전체 보기’로 주변을 살펴볼 수 있어요.</p></article></div><div class="source-box"><b>자료와 표현 범위</b><p>${escape(about.note)}</p>${about.details.map(text=>`<p>${escape(text)}</p>`).join('')}<p>${about.links.map(link=>outbound(link)).join(' · ')}</p></div><p class="credits">${escape(about.credits)} · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · 제작: ${escape(about.maker)}${templateCredit.text.endsWith(about.maker)?'':` · ${outbound({label:templateCredit.text,url:templateCredit.url},'')}`}</p>`);
 }
 
 $('#start-tour').onclick=()=>start('floor1');$('#start-campus').onclick=()=>start('campus');

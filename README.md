@@ -63,6 +63,6 @@ npm run check && npm test && npm run build
 - 문서·학교 모형·이미지: [CC BY 4.0](LICENSE-CONTENT.md)
 - Meshy로 만든 캐릭터: CC BY 4.0 — 출처와 바꾼 내용은 [에셋 출처](ASSET_CREDITS.md)
 
-Copyright (c) 2026 청학고 도쌤 (dossamlab). 바꿔 쓰실 때는 출처를 남겨 주세요. 예: "청학고 도쌤의 학교 여행(school-travel)을 바탕으로 만들었습니다."
+Copyright (c) 2026 청학고 도쌤 (dossamlab). 바꿔 쓰실 때는 출처를 남겨 주세요. 사이트의 첫 화면과 도움말에 나오는 `made by 청학고 도쌤`(`src/template-credit.ts`)도 그대로 두면 됩니다. 예: "청학고 도쌤의 학교 여행(school-travel)을 바탕으로 만들었습니다."
 
 함께 고치고 싶은 점은 [협업 안내](CONTRIBUTING.md)를 참고해 이슈나 PR로 알려 주세요.

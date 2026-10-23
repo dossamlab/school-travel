@@ -24,5 +24,6 @@
     "node": "24.x"
   },
   "description": "학교 배치도·도면·사진을 바탕으로 교문부터 걸어 보는 3D 학교 여행 웹사이트 견본",
+  "author": "청학고 도쌤 (dossamlab)",
   "license": "MIT"
 }
