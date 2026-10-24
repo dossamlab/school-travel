@@ -20,7 +20,7 @@ test('index.html takes its school text from the config', () => {
 
 test('the template credit stays on the welcome card and in the help', async () => {
   const {templateCredit}=await import('../src/template-credit.ts');
-  assert.equal(templateCredit.text,'made by 청학고 도쌤');
+  assert.equal(templateCredit.text,'Template by 청학고 도쌤');
   assert.equal(templateCredit.url,'https://github.com/dossamlab/school-travel');
   const main=readFileSync(new URL('../src/school-main.ts',import.meta.url),'utf8');
   assert.match(main,/<small>[^`]*templateCredit\.text[^`]*<\/small>/,'shown on the welcome card');

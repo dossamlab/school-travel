@@ -1,4 +1,4 @@
-// 학교 여행(school-travel) — made by 청학고 도쌤 (dossamlab) · https://github.com/dossamlab/school-travel
+// 학교 여행(school-travel) — Template by 청학고 도쌤 (dossamlab) · https://github.com/dossamlab/school-travel
 import './school-style.css';
 import {bindGameKeyboard} from './interaction';
 import {planFloorData as floorData,planAspectRatios} from './school-plan-data';
